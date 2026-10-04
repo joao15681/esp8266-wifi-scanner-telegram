@@ -8,7 +8,7 @@ Projeto para ESP8266 que escaneia as redes Wi-Fi próximas e envia a lista (nome
 |---|---|
 | `iniciar` | Começa a escanear e enviar a lista a cada 10 segundos (o LED azul da placa acende) |
 | `parar` | Para o escaneamento (o LED apaga) |
-| `/ajuda` | Mostra os comandos disponíveis (o LED pisca) |
+| `/ajuda` | Mostra os comandos disponíveis (o LED pisca duplamente) |
 
 Os comandos aceitam maiúsculas e minúsculas. O bot só obedece mensagens vindas do `CHAT_ID` configurado.
 
