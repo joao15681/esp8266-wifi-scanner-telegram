@@ -18,6 +18,10 @@ bool escaneado = false;                       // false = desligado, true = ligad
 //Roda UMA vez quando o ESP liga ou reinicia, prepara tudo
 
 void setup() {
+
+  pinMode(LED_BUILTIN, OUTPUT);
+  digitalWrite(LED_BUILTIN, HIGH);
+
   Serial.begin(115200);  //Liga a comunicação com Serial Monitor
                          //115200 é a velocidade: necessita ser igual ao do Serial Monitor
 
@@ -61,13 +65,27 @@ void loop() {
 
       if (quem == CHAT_ID && texto == "iniciar") {
         escaneado = true;
-        pinMode(LED_BUILTIN, OUTPUT);
         digitalWrite(LED_BUILTIN, LOW);
       }
       if (quem == CHAT_ID && texto == "parar") {
         escaneado = false;
-        pinMode(LED_BUILTIN, OUTPUT);
         digitalWrite(LED_BUILTIN, HIGH);
+      }
+      if (quem == CHAT_ID && texto == "/ajuda") {
+       bot.sendMessage(CHAT_ID, "Olá! Os comandos disponíveis são:\niniciar - Começa a escanear o Wi-Fi\nparar - Pausa o escaneamento", "");
+      
+      if (escaneado) {
+       // está aceso (LOW): apaga um instante e volta a acender
+        digitalWrite(LED_BUILTIN, HIGH);
+        delay(200);
+        digitalWrite(LED_BUILTIN, LOW);
+      } 
+        else {
+        // está apagado (HIGH): acende um instante e volta a apagar
+         digitalWrite(LED_BUILTIN, LOW);
+         delay(200);
+         digitalWrite(LED_BUILTIN, HIGH);
+       }
       }
     }
     ultimaChecagem = millis();
