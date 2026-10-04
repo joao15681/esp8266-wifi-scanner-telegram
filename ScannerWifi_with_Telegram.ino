@@ -61,9 +61,13 @@ void loop() {
 
       if (quem == CHAT_ID && texto == "iniciar") {
         escaneado = true;
+        pinMode(LED_BUILTIN, OUTPUT);
+        digitalWrite(LED_BUILTIN, LOW);
       }
       if (quem == CHAT_ID && texto == "parar") {
         escaneado = false;
+        pinMode(LED_BUILTIN, OUTPUT);
+        digitalWrite(LED_BUILTIN, HIGH);
       }
     }
     ultimaChecagem = millis();
