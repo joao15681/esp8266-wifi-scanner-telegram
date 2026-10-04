@@ -1,0 +1,4 @@
+#define BOT_TOKEN "BOT_TOKEN"
+#define CHAT_ID   "CHAT_ID"
+#define WIFI_SSID "NOME_WIFI"
+#define WIFI_PASSWORD "SENHA_WIFI"
